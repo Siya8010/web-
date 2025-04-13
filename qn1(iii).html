@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>23BCE5077</title>
+</head>
+<body>
+    <div id="content"></div>
+    <p id="message"></p> 
+    <script>
+        let textbox = document.createElement("input");
+        textbox.setAttribute("type", "text");
+        textbox.style.backgroundColor = "green";
+        
+        document.getElementById("content").appendChild(textbox);
+
+        
+        textbox.addEventListener("focus", function () {
+            textbox.style.backgroundColor = "yellow";
+        });
+
+        
+        textbox.addEventListener("change", function () {
+            let message = "Hello, you entered: " + textbox.value +"\n";
+            document.getElementById("message").innerText += message; 
+        });
+        textbox.addEventListener("blur",function(){
+            textbox.style.backgroundColor="green";
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>23BCE5077</title>
+    <style>
+        #id2{
+            text-align: center;
+            color: white;
+            font-size: 100px;
+        }
+    </style>
+</head>
+<body style="background-color: black;">
+    <h3>Enter input</h3>
+    <div id="id2">
+        
+    </div>
+   <center> <input type="text" name="" id="inp"  style="background-color: black; color:white; border-color: black;" ></center>
+    <script>
+        let val =document.getElementById("inp");
+        let val2=document.getElementById("id2");
+        let c=0;
+        val.addEventListener("keypress",function(){
+            c++;
+            val2.innerHTML=`${c}`;
+        });
+    val.addEventListener("keydown",function(e){
+        if(e.key=="Backspace" && c>0)
+        {
+            c--;
+            val2.innerHTML=`${c}`;
+        }
+    });
+    </script>
+</body>
+</html>

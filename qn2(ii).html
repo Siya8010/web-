@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>23BCE5077</title>
+    <style>
+        #bg{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>
+        Enter your date of birth
+    </h1>
+    <input type="text" name="inp" id="dob" placeholder="dd/mm/yyyy">
+    <p id="age"></p>
+    <div id="bg" style="background-color: black; height:50px ;width:200px ; color: white;" >
+        
+
+    </div>
+    <script>
+        let text = "";
+        const testbox = document.getElementById("dob");
+        let dumb=document.getElementById("bg");
+        
+        dumb.addEventListener("mouseover", function() {
+            let y = testbox.value.split("/");
+            let year = parseInt(y[2]);
+
+            let age = 2025 - year;
+       
+            text = `Your age is: ${age}`;
+            dumb.innerHTML = text;
+        });
+    </script>
+</body>
+</html>

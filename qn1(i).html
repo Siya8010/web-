@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>23BCE5077</title>
+</head>
+<body>
+    <button onclick="fun()">click me to generate a table</button>
+    <button onclick="append()">append a row
+    </button>
+    <script>
+      
+      let tab = document.createElement("table");
+       let count=0;
+      function append(){
+        let row = tab.insertRow();
+        let cell1=row.insertCell(0);
+        let cell2=row.insertCell(1);
+        let cell3=row.insertCell(2);
+        cell1.innerHTML=`cell ${count++}`;
+        cell2.innerHTML=`cell ${count++}`;
+        cell3.innerHTML=`cell ${count++}`;
+        
+      }
+      function fun(){
+        let n=parseInt(prompt("Enter no of rows"));
+        
+       
+        for(let i=0;i<n;i++)
+    {
+        
+        let row = tab.insertRow();
+        let cell1=row.insertCell(0);
+        let cell2=row.insertCell(1);
+        let cell3=row.insertCell(2);
+        cell1.innerHTML=`cell ${count++}`;
+        cell2.innerHTML=`cell ${count++}`;
+        cell3.innerHTML=`cell ${count++}`;
+
+    }
+    tab.setAttribute("border","1px solid ");
+    document.body.appendChild(tab);
+      }
+    </script>
+</body>
+</html>

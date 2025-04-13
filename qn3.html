@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>23BCE5077</title>
+    <style>
+        .red{
+            color: red;
+        }
+        .error{
+            color: red;
+            display: none;
+        }
+    </style>
+</head>
+<body onload="getTime()">
+    <fieldset>
+        <legend>Test JavaScript Form Validation</legend>
+        <div style="display: flex;
+            justify-content: end;">
+            <div style="border: solid 1px black;" id="time" >
+
+            </div>
+           
+        </div>
+        <form action="" onsubmit="return myfun()">
+            <table >
+                <tr>
+                    <td>Name<span class="red">*</span></td>
+                    <td><input id="name" type="text"></td>
+                    <td id="id1" class="error">Please Enter your name!</td>
+                </tr>
+                <tr>
+                    <td>Address</td>
+                    <td><textarea id="addr"></textarea></td>
+                </tr>
+                <tr>
+                    <td>Zip Code<span class="red">*</span></td>
+                    <td><input type="text" id="zip"></td>
+                    <td id="id3" class="error">Please Enter valid Zip Code</td>
+                </tr>
+                <tr>
+                    <td>Country<span class="red">*</span></td>
+                    <td>
+                        <select name="country" id="country">
+                            <option value="" hidden >Please select..</option>
+                            <option value="India">India</option>
+                            <option value="Australia">Australia</option>
+                            <option value="South Africa">South Africa</option>
+                            <option value="New zealand">New zealand</option>
+                        </select>
+                    </td>
+                    <td id="id4" class="error">Please Enter Country</td>
+                </tr>
+                <tr>
+                    <td>Gender<span class="red">*</span></td>
+                    <td><input type="radio" name="gender" value="Male">Male
+                    <input type="radio" name="gender" value="Female">Female</td>
+                    <td id="id5" class="error">Please Enter Gender</td>
+               
+                    <td style="padding-left: 200px;">Pan No: <input type="text"  id="pan"></td>
+                </tr>
+                <tr>
+                    <td>Preferences<span class="red">*</span></td>
+                    <td><input type="checkbox" value="Red" name="pref">Red
+                    <input type="checkbox" value="Green" name="pref">Green
+                    <input type="checkbox" value="Blue" name="pref">Blue</td>
+                    <td id="id6" class="error">Please Enter Preferences</td>
+                </tr>
+                <tr>
+                    <td >Phone<span class="red">*</span></td>
+                    <td><input type="text" id="phone"></td>
+                    <td id="id7" class="error">Please Enter valid Phone no.</td>
+
+                </tr>
+                <tr>
+                    <td > Email<span class="red">*</span></td>
+                    <td><input type="text" id="email"></td>
+                    <td id="id8" class="error">Please Enter valid Email</td>
+                </tr>
+                <tr>
+                    <td>Password(6-8 characters)<span class="red">*</span></td>
+                    <td><input type="password" id="pw"></td>
+                    <td id="id9" class="error" >Please Enter valid Password</td>
+                </tr>
+                <tr>
+                    <td>Verify password<span class="red">*</span></td>
+                    <td><input type="password" id="pw2"></td>
+                    <td id="id10" class="error">Please Enter valid Password</td>
+                </tr>
+                <tr>
+                    <td>
+ 
+                    </td>
+                    <td>
+                        <button type="submit">SEND</button>
+                        <button type="reset">CLEAR</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </fieldset>
+   
+</body>
+<script>
+    function getTime(){
+        let timee= new Date().toLocaleTimeString();
+        let regTime=/^(\d{2}):(\d{2}):(\d{2})/;
+        let now=timee.match(regTime);
+       
+                let formattedTime = `${now[1]}:${now[2]}:${now[3]}`;
+                document.getElementById("time").textContent = formattedTime;
+            
+            let timer=setTimeout(getTime,1000);
+
+    }
+        function myfun(){
+            let name=document.getElementById("name");
+            let nameerror=document.getElementById("id1");
+            nameerror.style.display="none";
+            if(name.value.trim()==="" || name.value.trim().length >15){
+                nameerror.style.display="block";
+                name.focus();
+                return false;
+
+            }
+            let zip=document.getElementById("zip");
+            let ziperror=document.getElementById("id3");
+            ziperror.style.display="none";
+            let pattern1=/[0-9]{6}$/;
+            if(!pattern1.test(zip.value)){
+                ziperror.style.display="block";
+                zip.focus();
+                return false;
+            }
+            let ph=document.getElementById("phone");
+            let phoneError=document.getElementById("id7");
+            phoneError.style.display="none";
+            let pattern2=/[0-9]{10}$/;
+            if(!pattern2.test(ph.value)){
+                phoneError.style.display="block";
+                ph.focus();
+                return false;
+            }
+            let em=document.getElementById("email");
+            let emError=document.getElementById("id8");
+            emError.style.display="none";
+            let pattern3=/[a-zA-Z.0-9]+@[a-zA-Z]+\.[.a-zA-Z]+/;
+            if(!pattern3.test(em.value)){
+                emError.style.display="block";
+                em.focus();
+                return false;
+
+            }
+              let pw=document.getElementById("pw");
+            let pwErr=document.getElementById("id9");
+            pwErr.style.display="none";
+            let pattern4=/^(?=.*[A-Z])(?=.*\d)(?=.*[@#$%^&*!])[A-Za-z\d@#$%^&*!]{8,15}$/;
+            if(!pattern4.test(pw.value)){
+                pwErr.style.display="block";
+                em.focus();
+                return false;
+
+            }
+            let pw2=document.getElementById("pw2");
+            let pwE=document.getElementById("id10");
+            pwE.style.display="none";
+
+            if(!(pw2.value==pw.value)){
+                      pwE.style.display="block";
+                      pw2.focus();
+                      return false;
+            }
+
+            let pan=document.getElementById("pan");
+            let pattern5=/[A-Z]{5}[0-9]{4}[A-Z]{1}/;
+            if(!pattern5.test(pan.value)){
+                pan.value="";
+                pan.setAttribute("placeholder"," Enter a valid pan number");
+                pan.focus();
+                return false;
+
+            }
+            let country=document.getElementById("country");
+            let countryErr=document.getElementById("id4");
+            countryErr.style.display="none";
+          // document.write(country.value);
+            if(country.value.trim()===""){
+                    countryErr.style.display="block";
+                    country.focus();
+                    return false;
+            }
+            
+            let gender=document.getElementsByName("gender");
+            let genErr=document.getElementById("id5");
+            let selectedGen=null;
+            genErr.style.display="none";
+            for(let i=0;i<gender.length;i++)
+            {
+                if(gender[i].checked)
+            {
+                selectedGen=gender[i].value;
+                break;
+            }
+            }
+            if(!selectedGen){
+                genErr.style.display="block";
+                return false;
+            }
+            let preferences = document.getElementsByName("pref");
+            let prefErr = document.getElementById("id6");
+            prefErr.style.display = "none";
+
+            let selectedPreferences = [];
+
+            for (let i = 0; i < preferences.length; i++) {
+                if (preferences[i].checked) {
+                    selectedPreferences.push(preferences[i].value);
+                }
+            }
+
+            if (selectedPreferences.length === 0) {
+                prefErr.style.display = "block";
+                return false;
+            }
+            document.write(`Name: ${name.value}<br>Zip: ${zip.value}<br>Phone Number: ${ph.value}<br>Email: ${em.value}<br>Pan: ${pan.value}
+            <br>Country: ${country.value} <br> Gender: ${selectedGen} <br> Color: ${selectedPreferences} <br> Address:${document.getElementById("addr").value}`);
+           
+
+
+
+
+
+
+            return true;
+        
+    }
+    </script>
+</html>

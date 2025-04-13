@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>23BCE5077-Stopwatch</title>
+    <style>
+       button:hover{
+        background-color: rgb(66, 66, 172);
+        box-shadow: 50px;
+       }
+        button{
+            width: 80px;
+            height: 40px;
+           
+        }
+        p{
+            font-size: 80px;
+            font-weight: 40px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+ <button onclick="start()" style="background-color: green;">start</button><br><br>
+ <button onclick ="stop()" style="background-color: red;">stop</button><br><br>
+ <button onclick="reset()" style="background-color: yellow;">reset</button><br>
+ <div>
+    <p id="id1">
+
+    </p>
+ </div>
+ <script>
+    let s=0;
+    let m=0;
+    let h=0;
+    let p1=document.getElementById("id1");
+    let timer1;
+    let running=0;
+    function start(){
+        s++;
+        if(s>60){
+            s=s%60;
+            m++;
+        }
+        if(m>60){
+            m=m%60;
+            h++;
+
+        }
+    
+        p1.innerHTML=`${h}:${m}:${s}`;
+        timer1 =setTimeout(start,1000);
+    }
+   
+    function stop(){
+     
+        clearTimeout(timer1);
+        p1.innerHTML=`${h}:${m}:${s}`;
+    }
+    function reset(){
+        s=0;
+        m=0;
+        h=0;
+        clearTimeout(timer1);
+        p1.innerHTML=`${h}:${m}:${s}`;
+
+    }
+ </script>
+</body>
+</html>
