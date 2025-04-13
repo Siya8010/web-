@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My College Life at VIT</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        div {
+            margin: 25px; 
+            -ms-layout-grid: yellow;
+            border: 6px solid green;
+            padding: 20px;
+            background-color: rgb(132, 181, 223); /* Blue background in hexadecimal */
+            width: 400px; /* Example width, adjust as needed */
+        }
+        circle {
+            animation: circleAnimation 5s infinite; 
+        }
+
+        @keyframes circleAnimation {
+            0% {
+                
+                transform: translate(0); 
+            }
+            25% {
+                
+                transform: translate(50px, 0); 
+            }
+            50% {
+                
+                transform: rotate(45deg); 
+            }
+            75% {
+                
+                transform: skewX(20deg); 
+            }
+            100% {
+               
+                transform: translate(0); 
+            }
+        }
+        .image-container {
+  width: 200px; /* Adjust width as needed */
+  height: 200px; /* Adjust height as needed */
+  overflow: hidden;
+}
+    </style>
+</head>
+<body>
+
+    <div>
+        College life at VIT is a vibrant and enriching experience. The campus offers a plethora of opportunities for personal and academic growth. I am enjoying every moment of my journey here. 
+    </div>
+    <h1 class="rainbow-text">Pet Animals</h1>
+
+    <div id="pet-descriptions">
+        <p>Dogs are loyal companions and come in a variety of breeds.</p>
+        <p>Cats are independent and known for their playful personalities.</p>
+        <p>Birds are colorful and require special care.</p>
+        <p>Fish are fascinating to observe in their aquariums.</p>
+    </div>
+
+    <svg width="100" height="100">
+        <circle cx="50" cy="50" r="20" fill="red" /> 
+    </svg>
+    <img src="https://static.vecteezy.com/system/resources/thumbnails/006/325/639/small_2x/dog-cartoon-colored-clipart-illustration-free-vector.jpg" align="left" height="200px" width="200px" 
+    clip-path: circle(50% at center)>
+
+
+
+</body>
+</html>

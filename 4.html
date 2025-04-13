@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>..</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            border: 2px solid black;
+            margin-bottom: 20px;
+        }
+        .box {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            text-align: center;
+            line-height: 100px;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        #box1 {
+            background-color: red;
+            top: 50px;
+            left: 50px;
+            z-index: 1;
+        }
+        #box2 {
+            background-color: blue;
+            top: 80px;
+            left: 80px;
+            z-index: 2;
+        }
+        #box3 {
+            background-color: green;
+            top: 110px;
+            left: 110px;
+            z-index: 3;
+        }
+    </style>
+</head>
+<body>
+    <h2>Change Z-Index of Elements</h2>
+    
+    <div class="container">
+        <div id="box1" class="box">1</div>
+        <div id="box2" class="box">2</div>
+        <div id="box3" class="box">3</div>
+    </div>
+
+    <label for="elementSelect">Select Element:</label>
+    <select id="elementSelect">
+        <option value="box1">Red Box</option>
+        <option value="box2">Blue Box</option>
+        <option value="box3">Green Box</option>
+    </select>
+
+    <label for="zIndexValue">Set Z-Index:</label>
+    <input type="number" id="zIndexValue" value="1" min="1" max="10">
+    <button onclick="changeZIndex()">Apply</button>
+
+    <script>
+        function changeZIndex() {
+            var elementId = document.getElementById("elementSelect").value;
+            var newZIndex = document.getElementById("zIndexValue").value;
+            document.getElementById(elementId).style.zIndex = newZIndex;
+        }
+    </script>
+</body>
+</html>

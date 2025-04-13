@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<head>
+    <title>Your Register Number</title>
+    <style>
+        /* Internal CSS */
+        ul{
+            list-style-type:disc;
+            font-size: 10x;
+            color: blue;
+        }
+        .myphoto {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%; /* Makes the image circular */
+      border: 2px solid #3498db; /* Change #3498db to your favorite color */
+      display: block;
+      margin: 20px auto;
+    }
+
+    .title {
+      text-align: center;
+      font-size: 20px;
+      color: #000; /* Default font color */
+      animation: colorChange 5s infinite, fontSizeChange 5s infinite;
+    }
+
+    @keyframes colorChange {
+      0% { color: #000; } /* Default color */
+      50% { color: #e74c3c; } /* Change to another color */
+      100% { color: #000; }
+    }
+
+    @keyframes fontSizeChange {
+      0% { font-size: 100%; }
+      50% { font-size: 150%; }
+      100% { font-size: 100%; }
+    }
+    </style>
+     <link rel="stylesheet" href="calc.css">
+</head>
+<body>
+    <!-- Inline CSS -->
+    <table border="1" style="border-collapse: collapse; width: 50%; text-align:left;">
+        <tr>
+            <td style="background-color: orange; color: white; font-weight: bold;">
+                LEARN DATA SCIENCE!
+            </td>
+        </tr>
+        <tr>
+            <td><ul>
+                <li>Unlimited jobs</li>
+                <li>Best benefits anywhere</li>
+                <li>Call now for an appointment</li>
+            </ul>
+            </td>
+        </tr>
+    </table>
+    <p>
+    <div class="calculator">
+                <input type="text" class="display" disabled> 
+                <div class="button" button class="btn clear"></button></div>
+        <div class="buttons">
+            <button class="btn">7</button>
+            <button class="btn">8</button>
+            <button class="btn">9</button>
+            <button class="btn operator">+</button>
+            <button class="btn">4</button>
+            <button class="btn">5</button>
+            <button class="btn">6</button>
+            <button class="btn operator">-</button>
+            <button class="btn">1</button>
+            <button class="btn">2</button>
+            <button class="btn">3</button>
+            <button class="btn operator">x</button>
+            <button class="btn">C</button>
+            <button class="btn">0</button>
+            <button class="btn">=</button>
+            <button class="btn operator">/</button>
+        </div>
+    </div>
+    <p/>
+    <p>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/The_Beatles_members_at_New_York_City_in_1964.jpg/640px-The_Beatles_members_at_New_York_City_in_1964.jpg" alt="Favorite Singer" class="myphoto">
+  <h1 class="title">My Favorite Singer</h1>
+  </p>
+</body>
+</html>

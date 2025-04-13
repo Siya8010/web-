@@ -1,0 +1,22 @@
+body {
+    background-image: url("https://img.freepik.com/free-vector/pastel-watercolor-painted-background_23-2148959637.jpg");
+    background-position: center; 
+    background-size: cover;
+}
+
+#rainbow-text {
+    background-image: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+      -webkit-background-clip: text; /* For Safari and Chrome */
+      -webkit-text-fill-color: transparent; /* For Safari and Chrome */
+      background-clip: text;
+      text-fill-color: transparent;
+  }
+
+#pet-descriptions {
+    column-count: 2; /* Multi-column layout */
+    line-height: 30px;
+}
+
+svg {
+    transform: translate(50px, 50px) rotate(45deg) skewX(20deg); 
+}

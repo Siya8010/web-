@@ -1,0 +1,62 @@
+.calculator {
+    width: 300px;
+    margin: 50px auto;
+    border: 2px solid rgba(16, 160, 212, 0.603);
+    border-radius: 10px;
+    background-color: rgba(16, 160, 212, 0.603);
+    padding: 10px;
+}
+
+.display {
+    width: 75%;
+    height: 50px;
+    background-color: rgba(30, 136, 175, 0.603);
+    text-align: right;
+    padding: 10px;
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    box-shadow: rgba(33, 112, 141, 0.603);
+    align: right;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.btn {
+    padding: 20px;
+    font-size: 1.2em;
+    text-align: center;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #e7e7e7;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #c5c5c5;
+}
+
+.operator {
+    background-color:grey;
+    color: white;
+}
+
+.operator:hover {
+    background-color:blue;
+}
+@keyframes myanimation {
+    0% {
+      transform: translateX(0);
+    }
+    50% {
+      transform: translateX(100px);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }

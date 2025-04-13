@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>223BCE5077</title>
+</head>
+<body>
+  <canvas id="pondScene" width="600" height="400"></canvas>
+  <canvas id="clockCanvas" width="200" height="200"></canvas>
+
+  <script>
+    const canvas = document.getElementById("pondScene");
+    const ctx = canvas.getContext("2d");
+    let boatX = 280;
+
+    function drawScene() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      // Pond
+      ctx.fillStyle = "lightblue";
+      ctx.beginPath();
+      ctx.ellipse(300, 250, 100, 50, 0, 0, Math.PI * 2);
+      ctx.fill();
+
+      // Sun
+      ctx.fillStyle = "yellow";
+      ctx.beginPath();
+      ctx.arc(500, 50, 30, 0, Math.PI * 2);
+      ctx.fill();
+
+      for (let i = 0; i < 12; i++) {
+        let angle = (Math.PI / 6) * i;
+        let x1 = 500 + Math.cos(angle) * 35;
+        let y1 = 50 + Math.sin(angle) * 35;
+        let x2 = 500 + Math.cos(angle) * 50;
+        let y2 = 50 + Math.sin(angle) * 50;
+        ctx.beginPath();
+        ctx.moveTo(x1, y1);
+        ctx.lineTo(x2, y2);
+        ctx.stroke();
+      }
+
+      // House
+      ctx.fillStyle = "orange";
+      ctx.fillRect(100, 200, 80, 80);
+      ctx.fillStyle = "red";
+      ctx.beginPath();
+      ctx.moveTo(100, 200);
+      ctx.lineTo(140, 150);
+      ctx.lineTo(180, 200);
+      ctx.closePath();
+      ctx.fill();
+
+      // Door
+      ctx.fillStyle = "brown";
+      ctx.fillRect(130, 250, 20, 30);
+
+      // Flower
+      ctx.fillStyle = "pink";
+      ctx.beginPath();
+      ctx.ellipse(400, 200, 20, 30, 0, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.fillStyle = "green";
+      ctx.fillRect(398, 230, 4, 30);
+
+      // Duck
+      ctx.fillStyle = "yellow";
+      ctx.beginPath();
+      ctx.arc(350, 270, 15, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.beginPath();
+      ctx.arc(335, 280, 10, 0, Math.PI * 2);
+      ctx.fill();
+
+      // Boat
+      ctx.fillStyle = "brown";
+      ctx.beginPath();
+      ctx.moveTo(boatX, 240);
+      ctx.lineTo(boatX + 40, 240);
+      ctx.lineTo(boatX + 30, 250);
+      ctx.lineTo(boatX + 10, 250);
+      ctx.closePath();
+      ctx.fill();
+    }
+
+    function animateBoat() {
+      drawScene();
+      boatX += 1;
+      if (boatX > 320) boatX = 280;
+      requestAnimationFrame(animateBoat);
+    }
+
+    animateBoat();
+  </script>
+
+  <script>
+    const clockCanvas = document.getElementById("clockCanvas");
+    const ctxClock = clockCanvas.getContext("2d");
+
+    function drawClock() {
+      ctxClock.clearRect(0, 0, clockCanvas.width, clockCanvas.height);
+
+      // Clock face
+      ctxClock.fillStyle = "lightgray";
+      ctxClock.beginPath();
+      ctxClock.arc(100, 100, 80, 0, Math.PI * 2);
+      ctxClock.fill();
+      ctxClock.stroke();
+
+      // Markings
+      for (let i = 0; i < 12; i++) {
+        let angle = (Math.PI / 6) * i;
+        let x1 = 100 + Math.cos(angle) * 70;
+        let y1 = 100 + Math.sin(angle) * 70;
+        let x2 = 100 + Math.cos(angle) * 80;
+        let y2 = 100 + Math.sin(angle) * 80;
+        ctxClock.beginPath();
+        ctxClock.moveTo(x1, y1);
+        ctxClock.lineTo(x2, y2);
+        ctxClock.stroke();
+      }
+
+      // Get time
+      let now = new Date();
+      let hours = now.getHours() % 12;
+      let minutes = now.getMinutes();
+      let seconds = now.getSeconds();
+
+      let hourAngle = ((hours + minutes / 60) * 30) * (Math.PI / 180);
+      let minAngle = ((minutes + seconds / 60) * 6) * (Math.PI / 180);
+      let secAngle = (seconds * 6) * (Math.PI / 180);
+
+      function drawHand(length, angle, width, color) {
+        ctxClock.strokeStyle = color;
+        ctxClock.lineWidth = width;
+        ctxClock.beginPath();
+        ctxClock.moveTo(100, 100);
+        ctxClock.lineTo(
+          100 + Math.cos(angle - Math.PI / 2) * length,
+          100 + Math.sin(angle - Math.PI / 2) * length
+        );
+        ctxClock.stroke();
+      }
+
+      drawHand(40, hourAngle, 4, "black");
+      drawHand(60, minAngle, 3, "black");
+      drawHand(70, secAngle, 2, "red");
+
+      // Center circle
+      ctxClock.fillStyle = "black";
+      ctxClock.beginPath();
+      ctxClock.arc(100, 100, 5, 0, Math.PI * 2);
+      ctxClock.fill();
+    }
+
+    setInterval(drawClock, 1000);
+    drawClock(); // Initial call
+  </script>
+</body>
+</html>

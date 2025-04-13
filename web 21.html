@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Data Table</title>
+    <style>
+        table { border:10px color:23BCE1742SIY; }
+    </style>
+</head>
+<body>
+
+    <button onclick="fetchData()">Click Me</button>
+
+    <div id="tableContainer"></div>
+
+    <script>
+        function fetchData() {
+          
+                
+            ];
+
+            const table = document.createElement('table');
+
+            for (let i = 0; i < data.length; i++) {
+                const row = document.createElement('tr');
+                for (let j = 0; j < data[i].length; j++) {
+                    const cell = document.createElement('td');
+                    cell.textContent = data[i][j];
+                    row.appendChild(cell);
+                }
+                table.appendChild(row);
+            }
+
+            document.getElementById('tableContainer').appendChild(table);
+        }
+    </script>
+
+</body>
+</html>

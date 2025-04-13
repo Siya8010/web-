@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>23BCE1742</title>
+    <link rel="stylesheet" href="lab89.css"> <!-- Optional: Link a CSS file for styling -->
+</head>
+<body>
+
+    <h2>Basic Calculator</h2>
+    <button onclick="calculate()">Start Calculation</button>
+    <h2>Check Driving Eligibility</h2>
+    <button onclick="checkDrivingEligibility()">Check Eligibility</button>
+    <h2>Student Registration</h2>
+    <button onclick="confirmStudent()">Enter Registration Number</button>
+    <h2>Labour Cost & Total Charge Calculator</h2>
+    <button onclick="calculateCost()">Calculate Charges</button>
+
+    <h3>TICKET BOOTH</h3>
+    <label>Adults (₹10 each): </label>
+    <input type="number" id="adult" value="0"><br><br>
+
+    <label>Children (₹5 each): </label>
+    <input type="number" id="child" value="0"><br><br>
+
+    <button onclick="calculateTotal()">Total</button><br><br>
+
+    <label>Total Amount: ₹</label>
+    <input type="text" id="total" readonly>
+
+    <h3>Registration Display</h3>
+    
+    <p>Display your registration number as shown below:</p>
+    <p id="regNo"></p>
+
+    <p>Display your name as shown below:</p>
+    <p id="name"></p>
+    <script src="lab89.js"></script> <!-- Link external JavaScript file -->
+</body>
+</html>

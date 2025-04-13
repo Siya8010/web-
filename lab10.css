@@ -1,0 +1,78 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 20px;
+}
+
+table {
+    width: 50%;
+    margin: auto;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid black;
+}
+
+button {
+    margin: 10px;
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+input {
+    padding: 5px;
+    margin: 5px;
+}
+
+.info {
+    color: blue;
+}
+
+
+form {
+    width: 50%;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+}
+
+label, h2 {
+    font-weight: bold;
+}
+
+input, button {
+    width: 100%;
+    padding: 8px;
+    margin: 5px 0;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+.product {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+}
+
+#receipt {
+    text-align: left;
+    margin: auto;
+    width: 50%;
+    border: 1px solid #ccc;
+    padding: 20px;
+    background-color: #f1f1f1;
+    border-radius: 10px;
+}

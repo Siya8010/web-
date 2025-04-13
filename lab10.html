@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Analytics</title>
+    <link rel="stylesheet" href="lab10.css">
+</head>
+<body>
+    <h1 id="title">23BCE1742</h1>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>P-Id</th>
+                <th>Name</th>
+                <th>Age</th>
+            </tr>
+        </thead>
+        <tbody id="patientTable">
+            <tr><td>1</td><td>Alen</td><td>39</td></tr>
+            <tr><td>2</td><td>Deena</td><td>47</td></tr>
+            <tr><td>3</td><td>Diana</td><td>21</td></tr>
+            <tr><td>4</td><td>Jack</td><td>54</td></tr>
+            <tr><td>5</td><td>Jain</td><td>23</td></tr>
+            <tr><td>6</td><td>Kelvin</td><td>61</td></tr>
+            <tr><td>7</td><td>Louis</td><td>69</td></tr>
+            <tr><td>8</td><td>Rex</td><td>49</td></tr>
+        </tbody>
+    </table>
+
+    <button onclick="sortPatients()">Sort by Age (Descending)</button>
+    <input type="text" id="searchId" placeholder="Enter P-Id">
+    <button onclick="checkPatient()">Check P-Id</button>
+    
+    <input type="number" id="minAge" placeholder="Min Age">
+    <input type="number" id="maxAge" placeholder="Max Age">
+    <button onclick="filterPatients()">Filter by Age</button>
+
+    <h2>DOM Manipulation</h2>
+    <h1 id="header">Original Title</h1>
+    <button onclick="updateTitle()">Change Title</button>
+
+    <input type="text" name="username">
+    <button onclick="updateUsername()">Set Username</button>
+
+    <input type="radio" name="gender" value="Male"> Male
+    <input type="radio" name="gender" value="Female"> Female
+    <button onclick="getSelectedGender()">Get Selected Gender</button>
+    <p id="genderOutput"></p>
+
+    <p class="info">Paragraph 1</p>
+    <p class="info">Paragraph 2</p>
+    <button onclick="updateFirstInfo()">Update First Info</button>
+
+    <h1>Grocery Order Form</h1>
+    
+    <form id="orderForm">
+        <label for="customerName">Customer Name:</label>
+        <input type="text" id="customerName" required>
+
+        <label for="phone">Phone Number:</label>
+        <input type="text" id="phone" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" required>
+
+        <h2>Products</h2>
+        <div class="product">
+            <input type="checkbox" class="product-check" value="Apple" data-price="10"> Apple - $10/kg
+            <input type="number" class="product-quantity" min="0" value="0"> kg
+        </div>
+        <div class="product">
+            <input type="checkbox" class="product-check" value="Banana" data-price="5"> Banana - $5/kg
+            <input type="number" class="product-quantity" min="0" value="0"> kg
+        </div>
+        <div class="product">
+            <input type="checkbox" class="product-check" value="Avocado" data-price="7"> Avocado - $7/kg
+            <input type="number" class="product-quantity" min="0" value="0"> kg
+        </div>
+
+        <button type="button" onclick="submitOrder()">Submit Order</button>
+    </form>
+
+    <h1>Order Receipt</h1>
+    <div id="receipt"></div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            let orderData = JSON.parse(localStorage.getItem("orderReceipt"));
+
+            if (!orderData) {
+                document.getElementById("receipt").innerHTML = "<p>No order data found.</p>";
+                return;
+            }
+
+            let receiptHtml = `
+                <p><strong>Customer Name:</strong> ${orderData.customerName}</p>
+                <p><strong>Phone:</strong> ${orderData.phone}</p>
+                <p><strong>Email:</strong> ${orderData.email}</p>
+                <h2>Ordered Products:</h2>
+                <ul>`;
+
+            let totalPrice = 0;
+            orderData.products.forEach(product => {
+                let cost = product.price * product.quantity;
+                totalPrice += cost;
+                receiptHtml += `<li>${product.name} - ${product.quantity}kg ($${cost})</li>`;
+            });
+
+            receiptHtml += `</ul><h3>Total Price: $${totalPrice}</h3>`;
+
+            document.getElementById("receipt").innerHTML = receiptHtml;
+        });
+    </script>
+
+    <script src="lab10.js"></script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 50px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+table {
+    width: 80%;
+    margin: auto;
+    border-collapse: collapse;
+    background: white;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
+
+th {
+    background-color: #007bff;
+    color: white;
+}
+
+.hot {
+    background-color: #ff6961;
+    color: white;
+}
+
+.pleasant {
+    background-color: #77dd77;
+}
+
+.cold {
+    background-color: #aec6cf;
+}
+
+#seating-chart {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.seat {
+    width: 50px;
+    height: 50px;
+    margin: 5px;
+    line-height: 50px;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 10px;
+    border: 2px solid black;
+}
+
+.available {
+    background-color: #77dd77; /* Green for available */
+}
+
+.occupied {
+    background-color: #ff6961; /* Red for occupied */
+    color: white;
+}
+
+#boarding-pass {
+    margin-top: 20px;
+    display: none;
+    padding: 10px;
+    border: 2px solid #333;
+    background: white;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+}
+
+h3 {
+    margin-top: 20px;
+}

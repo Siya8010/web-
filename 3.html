@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Charts with Plotly.js</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <style>
+        .chart-container {
+            width: 45%;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <h2>Dynamic Charts using Plotly.js</h2>
+    
+    <div class="chart-container">
+        <div id="barChart"></div>
+    </div>
+    <div class="chart-container">
+        <div id="lineChart"></div>
+    </div>
+    <div class="chart-container">
+        <div id="pieChart"></div>
+    </div>
+    <div class="chart-container">
+        <div id="donutChart"></div>
+    </div>
+
+    <script>
+      
+        var barData = [{
+            x: ['A', 'B', 'C', 'D'],
+            y: [10, 15, 7, 12],
+            type: 'bar',
+            marker: { color: ['red', 'blue', 'green', 'purple'] }
+        }];
+        var barLayout = { title: 'Bar Chart', xaxis: { title: 'Categories' }, yaxis: { title: 'Values' } };
+        Plotly.newPlot('barChart', barData, barLayout);
+
+        var lineData = [{
+            x: [1, 2, 3, 4, 5],
+            y: [5, 8, 12, 7, 10],
+            type: 'scatter',
+            mode: 'lines+markers',
+            marker: { color: 'blue' }
+        }];
+        var lineLayout = { title: 'Line Chart', xaxis: { title: 'Time' }, yaxis: { title: 'Values' } };
+        Plotly.newPlot('lineChart', lineData, lineLayout);
+
+        
+        var pieData = [{
+            labels: ['Red', 'Blue', 'Green'],
+            values: [30, 40, 30],
+            type: 'pie'
+        }];
+        var pieLayout = { title: 'Pie Chart' };
+        Plotly.newPlot('pieChart', pieData, pieLayout);
+
+        var donutData = [{
+            labels: ['Apple', 'Banana', 'Orange'],
+            values: [20, 50, 30],
+            type: 'pie',
+            hole: 0.4
+        }];
+        var donutLayout = { title: 'Donut Chart' };
+        Plotly.newPlot('donutChart', donutData, donutLayout);
+    </script>
+</body>
+</html>

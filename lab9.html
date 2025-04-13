@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>23BCE1742</title>
+    <link rel="stylesheet" href="lab89.css"> <!-- Link external CSS file -->
+</head>
+<body>
+
+    <h2>New York City Daily Temperature Analysis</h2>
+    <button onclick="analyzeTemperatures()">Analyze Temperatures</button>
+
+    <h3>Temperature Categories:</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Day</th>
+                <th>Temperature (°F)</th>
+                <th>Category</th>
+            </tr>
+        </thead>
+        <tbody id="temperature-table">
+            <!-- Data will be injected dynamically here -->
+        </tbody>
+    </table>
+
+    <h3>Summary:</h3>
+    <p><strong>Hot Days (85°F or higher):</strong> <span id="hot-days">0</span></p>
+    <p><strong>Pleasant Days (60°F - 84°F):</strong> <span id="pleasant-days">0</span></p>
+    <p><strong>Cold Days (below 60°F):</strong> <span id="cold-days">0</span></p>
+
+    <h2>✈️ Airline Seat Reservation System</h2>
+    <p>Select your seating preference:</p>
+
+    <button onclick="assignSeat(1)">First Class (Seats 1-5)</button>
+    <button onclick="assignSeat(2)">Economy (Seats 6-10)</button>
+
+    <h3>Seating Chart:</h3>
+    <div id="seating-chart">
+        <!-- Seat layout will be displayed here -->
+    </div>
+
+    <h3>Boarding Pass:</h3>
+    <div id="boarding-pass">
+        <p><strong>Name:</strong> <span id="passenger-name"></span></p>
+        <p><strong>Seat Number:</strong> <span id="seat-number"></span></p>
+        <p><strong>Class:</strong> <span id="seat-class"></span></p>
+    </div>
+
+        <h2>BMI Calculator</h2>
+    
+        <label for="weight">Enter Your Weight (in pounds): </label>
+        <input type="number" id="weight"><br><br>
+    
+        <label for="height">Enter Your Height (in inches): </label>
+        <input type="number" id="height"><br><br>
+    
+        <button onclick="calculateBMI()">Calculate</button><br><br>
+    
+        <label>Your BMI: </label>
+        <input type="text" id="bmiResult" readonly>
+    
+   
+    <script src="lab89.js"></script> <!-- Link external JavaScript file -->
+
+</body>
+</html>
